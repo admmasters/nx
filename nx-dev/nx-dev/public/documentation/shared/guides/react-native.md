@@ -139,7 +139,7 @@ Nx allows you to create libraries with just one command. Some reasons you might 
 
 - Share code between applications
 - Publish a package to be used outside the monorepo
-- Better visualize the architecture using `npx nx dep-graph`
+- Better visualize the architecture using `npx nx graph`
 
 For more information on Nx libraries, see our documentation on [Creating Libraries](/structure/creating-libraries)
 and [Library Types](/structure/library-types).
@@ -255,6 +255,22 @@ dist/libs/shared-ui-layout/
 ```
 
 This dist folder is ready to be published to a registry.
+
+## Environment Variables
+
+The workspace should install[react-native-config](https://github.com/luggit/react-native-config) by default. To use environment variable, create a new `.env` file in the `happynrwl/apps/mobile` folder:
+
+```
+NX_BUILD_NUMBER=123
+```
+
+Then access variables defined there from your app:
+
+```
+import Config from 'react-native-config';
+
+Config.NX_BUILD_NUMBER; // '123'
+```
 
 ## Code Sharing
 
